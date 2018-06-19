@@ -53,16 +53,19 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
         txtdir = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        txtfakename = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        txtfaketext = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("加密");
         setName(""); // NOI18N
 
+        txttext.setEditable(false);
         txttext.setColumns(20);
         txttext.setRows(5);
         jScrollPane1.setViewportView(txttext);
@@ -78,23 +81,35 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel2.setText("文件标题：");
 
+        txtfilename.setEditable(false);
         txtfilename.setColumns(20);
         txtfilename.setRows(5);
         jScrollPane2.setViewportView(txtfilename);
 
-        jLabel3.setText("伪造文件标题：");
+        txtdir.setEditable(false);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        jLabel3.setText("伪造文件标题：（可根据需要修改）");
 
-        jLabel4.setText("伪造文件正文：");
+        txtfakename.setColumns(20);
+        txtfakename.setRows(5);
+        jScrollPane3.setViewportView(txtfakename);
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        jLabel4.setText("伪造文件正文：（可根据需要修改）");
+
+        txtfaketext.setColumns(20);
+        txtfaketext.setRows(5);
+        jScrollPane4.setViewportView(txtfaketext);
 
         jButton1.setText("确认加密");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("选择加密密级：");
 
         javax.swing.GroupLayout encryptJPanel1Layout = new javax.swing.GroupLayout(encryptJPanel1);
         encryptJPanel1.setLayout(encryptJPanel1Layout);
@@ -104,6 +119,10 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(encryptJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(encryptJPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
                         .addComponent(jButton1))
                     .addGroup(encryptJPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -135,10 +154,10 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(encryptJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(encryptJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(encryptJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -148,7 +167,10 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
-                .addComponent(jButton1)
+                .addGroup(encryptJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(51, 51, 51))
         );
 
@@ -178,19 +200,21 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
             System.out.println(openfile.getSelectedFile().getAbsolutePath());
             txtdir.setText(openfile.getSelectedFile().getAbsolutePath());
     }//GEN-LAST:event_btnsearchActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
         File file = openfile.getSelectedFile();//得到文件对象
         String fileName = openfile.getSelectedFile().getName();//得到文件名
-
+        txtfilename.setText(fileName);
+        txtfakename.setText(fileName);
         BufferedReader bf;
+        StringBuilder sb = new StringBuilder();
         try {
             bf = new BufferedReader(new FileReader(file));
-            String content = "";
-            StringBuilder sb = new StringBuilder();
-            while (content != null) {
-                content = bf.readLine();
-                if (content == null) {
-                    break;
-                }
+            String content = "";   
+            while ((content=bf.readLine()) != null) {
+                content = new String(content.getBytes("GBK"),"UTF-8");//将读取出来的GBK格式的代码转换成UTF-8  
                 sb.append(content.trim());
             }
         } catch (FileNotFoundException ex) {
@@ -198,23 +222,33 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
         } catch (IOException ex) {
             Logger.getLogger(EncryptJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        txttext.setText(sb);
+        txttext.setText(sb.toString());
+        txtfaketext.setText("道可道，非常道；名可名，非常名。\n" +
+"\n" +
+"无名，万物之始，有名，万物之母。\n" +
+"\n" +
+"故常无欲，以观其妙，常有欲，以观其徼。\n" +
+"\n" +
+"此两者，同出而异名，同谓之玄，玄之又玄，众妙之门。");
+       
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsearch;
     private com.ouc.encrypt.view.EncryptJPanel encryptJPanel1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextField txtdir;
+    private javax.swing.JTextArea txtfakename;
+    private javax.swing.JTextArea txtfaketext;
     private javax.swing.JTextArea txtfilename;
     private javax.swing.JTextArea txttext;
     // End of variables declaration//GEN-END:variables
