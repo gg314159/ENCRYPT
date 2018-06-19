@@ -14,13 +14,13 @@ import java.net.URL;
  *
  * @author lenovo
  */
-public class DecipherJPanel extends javax.swing.JPanel {
+public class DecryptJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form DecipherJPanel
+     * Creates new form DecryptJPanel
      */ 
     private Image img;
-    public DecipherJPanel() {
+    public DecryptJPanel() {
         initComponents();
      this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/01.jpg"));
     

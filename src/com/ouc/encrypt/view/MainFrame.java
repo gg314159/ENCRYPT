@@ -39,6 +39,8 @@ public class MainFrame extends javax.swing.JFrame {
         btndecipher = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,42 +70,48 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ouc/encrypt/img/jiantou1.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ouc/encrypt/img/jiantou2.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ouc/encrypt/img/jiantou2.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/ouc/encrypt/img/jiantou2.png"))); // NOI18N
 
         javax.swing.GroupLayout mainJPanel1Layout = new javax.swing.GroupLayout(mainJPanel1);
         mainJPanel1.setLayout(mainJPanel1Layout);
         mainJPanel1Layout.setHorizontalGroup(
             mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainJPanel1Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
                 .addGroup(mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(mainJPanel1Layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addGroup(mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btndecipher, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainJPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnencrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(437, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(26, 26, 26)
+                .addGroup(mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnencrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndecipher, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(534, Short.MAX_VALUE))
         );
         mainJPanel1Layout.setVerticalGroup(
             mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainJPanel1Layout.createSequentialGroup()
-                .addGroup(mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(165, 165, 165)
+                .addGroup(mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(mainJPanel1Layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainJPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnencrypt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)))
-                .addGap(60, 60, 60)
-                .addComponent(btndecipher, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addGap(87, 87, 87)
+                        .addComponent(btndecipher, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75))
+                    .addGroup(mainJPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel3)
+                        .addGap(64, 64, 64)))
+                .addGroup(mainJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btndelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,7 +122,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+            .addComponent(mainJPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
         );
 
         pack();
@@ -127,7 +135,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btndecipherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndecipherActionPerformed
         // TODO add your handling code here:
-        showFrame(DecipherJInternalFrame.class);
+        showFrame(DecryptJInternalFrame.class);
     }//GEN-LAST:event_btndecipherActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -193,6 +201,8 @@ public void showFrame(Class clazz){
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnencrypt;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private com.ouc.encrypt.view.MainJPanel mainJPanel1;
     // End of variables declaration//GEN-END:variables
 }
