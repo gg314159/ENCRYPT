@@ -86,8 +86,6 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
         txtfilename.setRows(5);
         jScrollPane2.setViewportView(txtfilename);
 
-        txtdir.setEditable(false);
-
         jLabel3.setText("伪造文件标题：（可根据需要修改）");
 
         txtfakename.setColumns(20);
@@ -103,11 +101,6 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
         jButton1.setText("确认加密");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("选择加密密级：");
 
@@ -200,10 +193,6 @@ public class EncryptJInternalFrame extends javax.swing.JInternalFrame {
             System.out.println(openfile.getSelectedFile().getAbsolutePath());
             txtdir.setText(openfile.getSelectedFile().getAbsolutePath());
     }//GEN-LAST:event_btnsearchActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
         File file = openfile.getSelectedFile();//得到文件对象
         String fileName = openfile.getSelectedFile().getName();//得到文件名
         txtfilename.setText(fileName);

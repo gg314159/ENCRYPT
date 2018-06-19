@@ -23,7 +23,7 @@ public class MainJPanel extends javax.swing.JPanel {
     public MainJPanel() {
         initComponents();
         //设置面板的背景图片，注意图片路径
-        this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/01.jpg"));
+        this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/4.jpg"));
     
     }
 // 增加成员方法：

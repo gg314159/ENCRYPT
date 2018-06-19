@@ -22,7 +22,7 @@ public class EncryptJPanel extends javax.swing.JPanel {
      private Image img;
     public EncryptJPanel() {
         initComponents();
-    this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/01.jpg"));
+    this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/5.jpg"));
     
     }
 // 增加成员方法：

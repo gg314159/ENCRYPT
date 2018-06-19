@@ -24,7 +24,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     public LoginJPanel() {
         initComponents();
         //设置面板的背景图片，注意图片路径
-        this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/01.jpg"));
+        this.setImgURL(this.getClass().getResource("/com/ouc/encrypt/img/2.jpg"));
     
     }
 // 增加成员方法：
@@ -44,6 +44,10 @@ public class LoginJPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        setPreferredSize(new java.awt.Dimension(40, 30));
+        setRequestFocusEnabled(false);
+        setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
